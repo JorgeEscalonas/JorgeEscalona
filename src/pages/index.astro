@@ -1,0 +1,60 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import SobreMi from '../components/SobreMi.astro';
+import Portafolio from '../components/Portafolio.astro';
+import Habilidades from '../components/Habilidades.astro';
+import Contacto from '../components/Contacto.astro';
+import Footer from '../components/Footer.astro';
+import logoBlanco from '../assets/My-logo.ico';
+import logoAzul from "../assets/logoAzul.ico";
+---
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    
+    <title>Jorge Escalona</title>
+    
+    <!-- Favicon que cambia según el tema del sistema -->
+    <script is:inline>
+      // Función para actualizar el favicon según el tema
+      function updateFavicon() {
+        const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const favicon = document.querySelector('link[rel="icon"]');
+        if (!favicon) return;
+        
+        // Actualizar el favicon basado en el tema
+        favicon.href = isDark ? 
+          '/src/assets/My-logo.ico' : 
+          '/src/assets/logoAzul.ico';
+      }
+
+      // Configurar el favicon inicial
+      document.addEventListener('DOMContentLoaded', updateFavicon);
+      
+      // Escuchar cambios en el tema del sistema
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', updateFavicon);
+    </script>
+    
+    <!-- Favicon por defecto -->
+    <link rel="icon" href="/src/assets/My-logo.ico" />
+    </script>
+  </head>
+  <body class="font-poppins text-white">
+    <Layout>
+        <Header />
+        <Hero />
+        <SobreMi />
+        <Portafolio />
+        <Habilidades />
+        <Contacto />
+        <Footer />
+      </Layout>
+  </body>
+</html>

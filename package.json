@@ -1,0 +1,27 @@
+{
+  "name": "JorgeEscalona",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/preact": "^4.1.0",
+    "@types/nodemailer": "^7.0.1",
+    "@types/react": "^19.1.12",
+    "astro": "^5.13.3",
+    "lucide": "^0.542.0",
+    "lucide-static": "^0.542.0",
+    "nodemailer": "^7.0.6",
+    "preact": "^10.27.1",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.7"
+  }
+}

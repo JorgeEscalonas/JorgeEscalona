@@ -1,0 +1,103 @@
+---
+import Eye from "lucide-static/icons/eye.svg";
+import Server from "lucide-static/icons/server.svg";
+import Wrench from "lucide-static/icons/wrench.svg";
+
+
+import AstroIcon from '../assets/svg/astro_dark.svg';
+import VueIcon from '../assets/svg/vue.svg';
+import TailwindIcon from '../assets/svg/tailwindcss.svg';
+import FlutterIcon from '../assets/svg/flutter.svg';
+import NodeIcon from '../assets/svg/nodejs.svg';
+import PythonIcon from '../assets/svg/python.svg';
+import PhpIcon from '../assets/svg/php_dark.svg';
+import CsharpIcon from '../assets/svg/csharp.svg';
+import DartIcon from '../assets/svg/dart.svg';
+import MySqlIcon from '../assets/svg/mysql.svg';
+import GitIcon from '../assets/svg/git.svg';
+import FigmaIcon from '../assets/svg/figma.svg';
+import UbuntuIcon from '../assets/svg/ubuntu.svg';
+
+type Technology = keyof typeof techIcons;
+
+const techIcons = {
+  'Astro': AstroIcon,
+  'Vue': VueIcon,
+  'Tailwind': TailwindIcon,
+  'Flutter': FlutterIcon,
+  'Node.js': NodeIcon,
+  'Python': PythonIcon,
+  'PHP': PhpIcon,
+  'C#': CsharpIcon,
+  'Dart': DartIcon,
+  'MySql': MySqlIcon,
+  'Git': GitIcon,
+  'Figma': FigmaIcon,
+  'Ubuntu': UbuntuIcon
+};
+
+const skills = [
+  { 
+    icon: Eye, 
+    titulo: "Frontend", 
+    descripcion: "Desarrollo de interfaces de usuario interactivas y responsivas.", 
+    tecnologias: ["Astro", "Vue", "Tailwind", "Flutter"] as Technology[] 
+  },
+  { 
+    icon: Server, 
+    titulo: "Backend", 
+    descripcion: "Implementación de APIs, servicios y bases de datos.", 
+    tecnologias: ["Node.js", "Python", "PHP", "C#", "Dart", "MySql"] as Technology[] 
+  },
+  { 
+    icon: Wrench, 
+    titulo: "Herramientas", 
+    descripcion: "Software y plataformas para desarrollo y colaboración.", 
+    tecnologias: ["Git", "Figma", "Ubuntu"] as Technology[] 
+  },
+];
+---
+
+<section id="habilidades" class="py-8 md:py-12 lg:py-16 min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
+  <div class="w-full max-w-7xl mx-auto">
+    <div class="text-center mb-8 md:mb-12 lg:mb-16">
+      <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-amarillo mb-1 sm:mb-2">Habilidades</h2>
+      <h3 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white">Tecnologías que manejo</h3>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 lg:gap-16">
+      {skills.map((s, index) => (
+        <div 
+          class="text-center p-4 sm:p-6"
+        >
+          {/* Icono circular */}
+          <div class="w-20 h-20 sm:w-22 sm:h-22 md:w-26 md:h-26 lg:w-28 lg:h-28 mx-auto mb-4 sm:mb-6 flex items-center justify-center rounded-full bg-white shadow-[inset_1px_1px_6px_rgba(255,255,255,0.6),inset_-2px_-2px_8px_rgba(0,0,0,0.5),0_10px_25px_rgba(0,0,0,0.3)]">
+            <s.icon class="w-10 h-10 sm:w-10 sm:h-10 md:w-14 md:h-14 lg:w-16 lg:h-16 text-azul" />
+          </div>
+
+          {/* Título */}
+          <h3 class="text-2xl sm:text-3xl md:text-5xl font-bold text-amarillo mb-2 sm:mb-3">{s.titulo}</h3>
+
+          {/* Descripción */}
+          <p class="text-white text-lg sm:text-lg md:text-2xl font-semibold mb-4 sm:mb-6">{s.descripcion}</p>
+
+          {/* Tecnologías */}
+          <div class="flex flex-wrap justify-center gap-2 sm:gap-3">
+            {s.tecnologias.map((tech: Technology) => {
+              const TechIcon = techIcons[tech];
+              return (
+                <span class="font-medium text-xs sm:text-sm md:text-base px-2 sm:px-3 py-1.5 sm:py-2 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 
+                          shadow-[inset_1px_1px_6px_rgba(255,255,255,0.6),inset_-2px_-2px_8px_rgba(0,0,0,0.5),0_10px_25px_rgba(0,0,0,0.3)]
+                          hover:scale-105 transition whitespace-nowrap flex items-center gap-1.5">
+                  {TechIcon && <img src={TechIcon.src} alt={tech} class="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5" />}
+                  <span class="text-xs sm:text-sm md:text-base">{tech}</span>
+                </span>
+              );
+            })}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+</section>

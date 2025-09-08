@@ -1,0 +1,313 @@
+---
+import Mail from "lucide-static/icons/mail.svg";
+import Phone from "lucide-static/icons/phone.svg";
+import Clock from "lucide-static/icons/clock.svg";
+import Send from "lucide-static/icons/send.svg";
+---
+
+<section id="contacto">
+  <div
+    class="min-h-screen pt-[60px] bg-white max-w-full mx-auto rounded-[40px] 
+           shadow-[inset_-2px_-2px_8px_rgba(0,0,0,0.6),0_10px_30px_rgba(0,0,0,0.2)]
+           px-6 sm:px-10 md:px-20 lg:px-32"
+  >
+    {/* Título */}
+    <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-azul mb-2 text-center">
+      Contacto
+    </h2>
+    <p class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl  font-bold text-black mb-10 text-center">
+      ¿Deseas contactarme?
+    </p>
+
+    {/* Grid: 1 columna móvil / 2 columnas tablet y PC */}
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 py-10 ">
+      {/* Info */}
+      <div class="space-y-18 sm:space-y-18 w-full flex flex-col items-center">
+        <div class="space-y-14 sm:space-y-14">
+          {/* Email */}
+        <div class="flex items-center gap-4 sm:gap-6">
+          <Mail class="w-10 h-10 sm:w-14 sm:h-14 text-azul" />
+          <div>
+            <p class="font-black text-xl sm:text-2xl md:text-3xl text-black">Email</p>
+            <a
+              href="mailto:escalonajorge73@gmail.com"
+              class="font-bold text-lg sm:text-xl md:text-2xl text-azul hover:underline break-all"
+            >
+              escalonajorge73@gmail.com
+            </a>
+          </div>
+        </div>
+
+        {/* Teléfono */}
+        <div class="flex items-center gap-4 sm:gap-6">
+          <Phone class="w-10 h-10 sm:w-14 sm:h-14 text-azul" />
+          <div>
+            <p class="font-black text-xl sm:text-2xl md:text-3xl text-black">Teléfono</p>
+            <p class="text-azul font-bold text-lg sm:text-xl md:text-2xl break-words">
+              +58 0412 029 6711
+            </p>
+          </div>
+        </div>
+
+        {/* Disponibilidad */}
+        <div class="flex items-center gap-4 sm:gap-6">
+          <Clock class="w-10 h-10 sm:w-14 sm:h-14 text-azul" />
+          <div>
+            <p class="font-black text-xl sm:text-2xl md:text-3xl text-black">Disponibilidad</p>
+            <p class="text-azul font-bold text-lg sm:text-xl md:text-2xl">
+              Disponible para trabajar
+            </p>
+          </div>
+        </div>
+        </div>
+      
+        {/* Redes sociales */}
+        <div class="mt-16 text-center md:text-left">
+          <div class="flex justify-center md:justify-start gap-x-8 sm:gap-x-12 md:gap-x-16">
+            {/* Instagram */}
+            <a href="https://www.instagram.com/jorge_escalonaa?igsh=MTM2bzczeWZ0Z3d6ZQ==" class="hover:opacity-75 hover:scale-125 transition">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12"
+                preserveAspectRatio="xMidYMid"
+                viewBox="0 0 256 256"
+              >
+                <path
+                  fill="#0000ff"
+                  d="M128 23.064c34.177 0 38.225.13 51.722.745 12.48.57 19.258 2.655 23.769 4.408
+                     5.974 2.322 10.238 5.096 14.717 9.575 4.48 4.479 7.253 8.743 9.575 14.717
+                     1.753 4.511 3.838 11.289 4.408 23.768.615 13.498.745 17.546.745 51.723
+                     0 34.178-.13 38.226-.745 51.723-.57 12.48-2.655 19.257-4.408 23.768
+                     -2.322 5.974-5.096 10.239-9.575 14.718-4.479 4.479-8.743 7.253-14.717 9.574
+                     -4.511 1.753-11.289 3.839-23.769 4.408-13.495.616-17.543.746-51.722.746
+                     -34.18 0-38.228-.13-51.723-.746-12.48-.57-19.257-2.655-23.768-4.408
+                     -5.974-2.321-10.239-5.095-14.718-9.574-4.479-4.48-7.253-8.744-9.574-14.718
+                     -1.753-4.51-3.839-11.288-4.408-23.768-.616-13.497-.746-17.545-.746-51.723
+                     0-34.177.13-38.225.746-51.722.57-12.48 2.655-19.258 4.408-23.769
+                     2.321-5.974 5.095-10.238 9.574-14.717 4.48-4.48 8.744-7.253 14.718-9.575
+                     4.51-1.753 11.288-3.838 23.768-4.408 13.497-.615 17.545-.745 51.723-.745M128 0C93.237 0 88.878.147 75.226.77c-13.625.622-22.93 2.786-31.071 5.95-8.418 3.271-15.556 7.648-22.672 14.764C14.367 28.6 9.991 35.738 6.72 44.155 3.555 52.297 1.392 61.602.77 75.226.147 88.878 0 93.237 0 128c0 34.763.147 39.122.77 52.774.622 13.625 2.785 22.93 5.95 31.071 3.27 8.417 7.647 15.556 14.763 22.672 7.116 7.116 14.254 11.492 22.672 14.763 8.142 3.165 17.446 5.328 31.07 5.95 13.653.623 18.012.77 52.775.77s39.122-.147 52.774-.77c13.624-.622 22.929-2.785 31.07-5.95 8.418-3.27 15.556-7.647 22.672-14.763 7.116-7.116 11.493-14.254 14.764-22.672 3.164-8.142 5.328-17.446 5.95-31.07.623-13.653.77-18.012.77-52.775s-.147-39.122-.77-52.774c-.622-13.624-2.786-22.929-5.95-31.07-3.271-8.418-7.648-15.556-14.764-22.672C227.4 14.368 220.262 9.99 211.845 6.72c-8.142-3.164-17.447-5.328-31.071-5.95C167.122.147 162.763 0 128 0Zm0 62.27C91.698 62.27 62.27 91.7 62.27 128c0 36.302 29.428 65.73 65.73 65.73 36.301 0 65.73-29.428 65.73-65.73 0-36.301-29.429-65.73-65.73-65.73Zm0 108.397c-23.564 0-42.667-19.103-42.667-42.667S104.436 85.333 128 85.333s42.667 19.103 42.667 42.667-19.103 42.667-42.667 42.667Zm83.686-110.994c0 8.484-6.876 15.36-15.36 15.36-8.483 0-15.36-6.876-15.36-15.36 0-8.483 6.877-15.36 15.36-15.36 8.484 0 15.36 6.877 15.36 15.36Z"
+                />
+              </svg>
+            </a>
+            {/* LinkedIn */}
+            <a href="https://www.linkedin.com/in/jorge-escalona-909057300" class="hover:opacity-75 hover:scale-125 transition">
+              <svg class="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 " xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid" viewBox="0 0 256 256">
+                <path 
+                  d="M218.123 218.127h-37.931v-59.403c0-14.165-.253-32.4-19.728-32.4-19.756 0-22.779 15.434-22.779 31.369v60.43h-37.93V95.967h36.413v16.694h.51a39.907 39.907 0 0 1 35.928-19.733c38.445 0 45.533 25.288 45.533 58.186l-.016 67.013ZM56.955 79.27c-12.157.002-22.014-9.852-22.016-22.009-.002-12.157 9.851-22.014 22.008-22.016 12.157-.003 22.014 9.851 22.016 22.008A22.013 22.013 0 0 1 56.955 79.27m18.966 138.858H37.95V95.967h37.97v122.16ZM237.033.018H18.89C8.58-.098.125 8.161-.001 18.471v219.053c.122 10.315 8.576 18.582 18.89 18.474h218.144c10.336.128 18.823-8.139 18.966-18.474V18.454c-.147-10.33-8.635-18.588-18.966-18.453" 
+                  fill="#0000ff"
+                />
+              </svg>
+            </a>
+            {/* GitHub */}
+            <a href="https://github.com/JorgeEscalonas" class="hover:opacity-75 hover:scale-125 transition">
+              <svg class="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 " viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path 
+                  fill-rule="evenodd" 
+                  clip-rule="evenodd" 
+                  d="M8 0C3.58 0 0 3.58 0 8C0 11.54 2.29 14.53 5.47 15.59C5.87 15.66 6.02 15.42 6.02 15.21C6.02 15.02 6.01 14.39 6.01 13.72C4 14.09 3.48 13.23 3.32 12.78C3.23 12.55 2.84 11.84 2.5 11.65C2.22 11.5 1.82 11.13 2.49 11.12C3.12 11.11 3.57 11.7 3.72 11.94C4.44 13.15 5.59 12.81 6.05 12.6C6.12 12.08 6.33 11.73 6.56 11.53C4.78 11.33 2.92 10.64 2.92 7.58C2.92 6.71 3.23 5.99 3.74 5.43C3.66 5.23 3.38 4.41 3.82 3.31C3.82 3.31 4.49 3.1 6.02 4.13C6.66 3.95 7.34 3.86 8.02 3.86C8.7 3.86 9.38 3.95 10.02 4.13C11.55 3.09 12.22 3.31 12.22 3.31C12.66 4.41 12.38 5.23 12.3 5.43C12.81 5.99 13.12 6.7 13.12 7.58C13.12 10.65 11.25 11.33 9.47 11.53C9.76 11.78 10.01 12.26 10.01 13.01C10.01 14.08 10 14.94 10 15.21C10 15.42 10.15 15.67 10.55 15.59C13.71 14.53 16 11.53 16 8C16 3.58 12.42 0 8 0Z" 
+                  transform="scale(64)" 
+                  fill="#0000ff"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      {/* Formulario */}
+      <form 
+        id="contact-form"
+        class="w-full flex flex-col gap-4 max-w-lg mx-auto"
+      >
+        <h3 class="font-bold text-black text-2xl sm:text-3xl mb-4">
+          Envíame un mensaje
+        </h3>
+
+        <input
+          type="text"
+          name="name"
+          placeholder="Tu nombre"
+          class="px-4 sm:px-6 py-3 sm:py-4 rounded-2xl border-2 border-azul outline-none focus:ring-2 focus:ring-azul shadow-md text-base sm:text-lg text-black"
+          required
+        />
+
+        <input
+          type="email"
+          name="email"
+          placeholder="Tu email"
+          class="px-4 sm:px-6 py-3 sm:py-4 rounded-2xl border-2 border-azul outline-none focus:ring-2 focus:ring-azul shadow-md text-base sm:text-lg text-black"
+          required
+        />
+
+        <input
+          type="tel"
+          name="phone"
+          placeholder="Tu teléfono"
+          class="px-4 sm:px-6 py-3 sm:py-4 rounded-2xl border-2 border-azul outline-none focus:ring-2 focus:ring-azul shadow-md text-base sm:text-lg text-black"
+        />
+
+        <textarea
+          name="message"
+          placeholder="¡Hola!"
+          rows="6"
+          class="px-4 sm:px-6 py-3 sm:py-4 rounded-2xl border-2 border-azul outline-none focus:ring-2 focus:ring-azul shadow-md text-base sm:text-lg text-black"
+          required
+        ></textarea>
+
+        <button
+          id="submit-button"
+          type="submit"
+          class="w-32 sm:w-40 bg-azul text-white font-semibold text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 rounded-full 
+                 shadow-[inset_1px_1px_6px_rgba(255,255,255,0.6),inset_-2px_-2px_8px_rgba(0,0,0,0.5),0_10px_25px_rgba(0,0,0,0.3)]
+                 hover:scale-105 transition flex items-center justify-center gap-2 sm:gap-3"
+        >
+          <Send class="w-5 h-5 sm:w-6 sm:h-6" />
+          Enviar
+        </button>
+        
+        <div id="form-status" class="p-4 rounded-lg transition-all duration-300  bg-white/10 backdrop-blur-xl border border-white/20 
+                   shadow-[inset_1px_1px_6px_rgba(255,255,255,0.6),inset_-2px_-2px_8px_rgba(0,0,0,0.5),0_10px_25px_rgba(0,0,0,0.3)]" style="display: none; margin-top: 1rem;"></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+
+  document.addEventListener('DOMContentLoaded', () => {
+    console.log('Script loaded!');
+    
+    const form = document.getElementById('contact-form') as HTMLFormElement | null;
+    const statusElement = document.getElementById('form-status') as HTMLDivElement | null;
+    const submitButton = document.getElementById('submit-button') as HTMLButtonElement | null;
+    let isLoading = false;
+
+    if (!form || !statusElement || !submitButton) {
+      console.error('No se encontraron los elementos del formulario');
+      return;
+    }
+    
+    console.log('Form elements found, setting up event listeners...');
+
+    const showStatusMessage = (message: string, type: 'loading' | 'success' | 'error') => {
+      if (!statusElement) return;
+      
+      // Limpiar clases existentes
+      statusElement.className = '';
+      
+      let containerClasses = 'p-5 rounded-2xl shadow-lg transition-all duration-300 flex items-start gap-4';
+      let titleClasses = 'font-black text-xl md:text-2xl';
+      let textClasses = 'text-base md:text-lg';
+      
+      if (type === 'loading') {
+        containerClasses += ' bg-white border-l-4 border-azul shadow-[0_4px_15px_rgba(0,0,0,0.1)]';
+        titleClasses += ' text-azul';
+        textClasses += ' text-gray-700';
+      } else if (type === 'success') {
+        containerClasses += ' bg-white border-l-4 border-green-500 shadow-[0_4px_15px_rgba(0,0,0,0.1)]';
+        titleClasses += ' text-green-600';
+        textClasses += ' text-gray-700';
+      } else if (type === 'error') {
+        containerClasses += ' bg-white border-l-4 border-red-500 shadow-[0_4px_15px_rgba(0,0,0,0.1)]';
+        titleClasses += ' text-red-600';
+        textClasses += ' text-gray-700';
+      }
+      
+      let icon = '';
+      if (type === 'loading') {
+        icon = `
+          <div class="relative w-8 h-8 ">
+            <div class="absolute inset-0 rounded-full border-4 border-azul/20"></div>
+            <div class="absolute inset-0 rounded-full border-4 border-t-azul border-r-transparent border-b-transparent border-l-transparent animate-spin"></div>
+          </div>
+        `;
+      } else if (type === 'success') {
+        icon = `
+          <div class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center">
+            <svg class="w-5 h-5 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+        `;
+      } else if (type === 'error') {
+        icon = `
+          <div class="w-8 h-8 rounded-full bg-red-100 flex items-center justify-center">
+            <svg class="w-5 h-5 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </div>
+        `;
+      }
+      
+      statusElement.innerHTML = `
+        <div class="${containerClasses}">
+          <div class="flex-shrink-0 mt-1">
+            ${icon}
+          </div>
+          <div>
+            <p class="${titleClasses}">
+              ${type === 'success' ? '¡Mensaje Enviado!' : type === 'error' ? '¡Ups! Algo salió mal' : 'Enviando mensaje...'}
+            </p>
+            <p class="${textClasses} font-medium">${message}</p>
+          </div>
+        </div>
+      `;
+      statusElement.style.display = 'block';
+      
+      statusElement.style.width = '100%';
+      statusElement.style.maxWidth = '100%';
+    };
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      console.log('Form submitted!');
+      
+      submitButton.disabled = true;
+      showStatusMessage('Estamos enviando tu mensaje, por favor espera...', 'loading');
+      
+      try {
+        const formData = {
+          name: (form.querySelector('input[name="name"]') as HTMLInputElement)?.value || '',
+          email: (form.querySelector('input[name="email"]') as HTMLInputElement)?.value || '',
+          phone: (form.querySelector('input[name="phone"]') as HTMLInputElement)?.value || '',
+          message: (form.querySelector('textarea[name="message"]') as HTMLTextAreaElement)?.value || '',
+        };
+        
+        console.log('Form data:', formData);
+        
+        const response = await fetch('/api/send-email', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        });
+        
+        const result = await response.json();
+        console.log('Server response:', result);
+        
+        if (response.ok) {
+          showStatusMessage('Gracias por contactarme. He recibido tu mensaje y me pondré en contacto contigo lo antes posible.', 'success');
+          (form as HTMLFormElement).reset();
+          
+          setTimeout(() => {
+            if (statusElement) {
+              statusElement.style.opacity = '0';
+              setTimeout(() => {
+                if (statusElement) statusElement.style.display = 'none';
+              }, 300);
+            }
+          }, 5000);
+        } else {
+          throw new Error(result.error || 'Error al enviar el mensaje');
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        const errorMessage = error instanceof Error ? error.message : 'Ocurrió un error inesperado al enviar el mensaje. Por favor, inténtalo de nuevo más tarde.';
+        showStatusMessage(errorMessage, 'error');
+      } finally {
+        (submitButton as HTMLButtonElement).disabled = false;
+      }
+    });
+  });
+</script>
+

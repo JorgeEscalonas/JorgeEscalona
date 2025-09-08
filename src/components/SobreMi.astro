@@ -1,0 +1,37 @@
+---
+import Marco from '../assets/Polaroid.png';
+
+---
+
+
+<section id="sobremi">
+  <div class="min-h-[80vh] sm:min-h-auto md:min-h-screen pt-[20px] sm:pt-[60px] md:pt-[100px] max-w-full mx-auto bg-white p-4 sm:p-10 md:p-20 my-6 sm:my-10 md:my-12 rounded-[30px] md:rounded-[80px] shadow-[inset_-2px_-2px_8px_rgba(0,0,0,0.3),0_10px_50px_rgba(0,0,0,0.3)]">
+    
+    <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-azul mb-2 text-center">Sobre mí</h2>
+    <h3 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-black text-center mb-8">Conóceme un poco más</h3>
+
+    <!-- Contenedor flexible -->
+    <div class="flex flex-col-reverse sm:flex-col md:flex-row items-center justify-center gap-6 sm:gap-8 md:gap-10">
+      
+      <!-- Texto -->
+      <div class="md:w-1/2 text-center md:text-left">
+        <p class="text-black leading-relaxed text-2xl sm:text-2xl md:text-3xl px-2 sm:px-4 md:px-10 font-bold">
+          Mi nombre completo es <span class="text-azul">Jorge Daniel Escalona Suarez</span>,
+          soy un joven <span class=" text-yellow-400">Ven</span><span class=" text-azul">ezol</span><span class=" text-rojo">ano</span> de 20 años. Actualmente me dedico al
+          <span class=" text-azul"> desarrollo de software</span>, desde hace 3 años.
+          Me apasiona expandir mis conocimientos en cuanto al mundo tecnológico, aplicando  las
+          <span class=" text-azul"> mejores prácticas</span> en cada cosa que haga.
+        </p>
+      </div>
+
+      <!-- Imagen estilo polaroid -->
+      <div class="md:w-1/2 flex justify-center md:justify-center mt-4 md:mt-0">
+        <div class="relative">
+          <img src={Marco.src} alt="Marco polaroid" class="h-auto block object-cover rotate-6 w-[160px] sm:w-[220px] md:w-[300px] lg:w-[400px] transform shadow-2xl overflow-hidden " />
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+

@@ -1,0 +1,168 @@
+---
+import logoBlanco from "../assets/logoBlanco.png";
+import logoAzul from "../assets/logoAzul.png";
+
+// Verificar si estamos en el cliente para evitar errores de SSR
+const isBrowser = typeof window !== 'undefined';
+---
+
+<header class="fixed top-0 w-full flex items-center justify-between px-3 z-50">
+  <!-- Logo -->
+  <div class="text-2xl font-bold">
+    <a href="#hero" aria-label="Ir al inicio">
+      <img 
+        src={logoBlanco.src} 
+        alt="JE" 
+        class="h-[70px] sm:h-[90px] md:h-[120px] w-auto transition-all duration-300" 
+        id="header-logo"
+      />
+    </a>
+  </div>
+
+  <!-- Nav para pantallas md y mayores -->
+  <nav class="hidden md:flex md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 px-10 py-8 rounded-full 
+              bg-white/10 backdrop-blur-2xl 
+              shadow-[inset_1px_1px_6px_rgba(255,255,255,0.6),inset_-2px_-2px_8px_rgba(0,0,0,0.5),0_10px_25px_rgba(0,0,0,0.3)] 
+              border border-white/20 
+              transition-colors duration-500 ease-in-out"
+              id="desktop-nav">
+    <ul class="flex items-center gap-10 font-medium text-2xl">
+      <li><a href="#sobremi" class="nav-link hover:text-amarillo transition whitespace-nowrap" data-section="sobremi">Sobre mí</a></li>
+      <li><a href="#habilidades" class="nav-link hover:text-amarillo transition" data-section="habilidades">Habilidades</a></li>
+      <li><a href="#portafolio" class="nav-link hover:text-amarillo transition" data-section="portafolio">Proyectos</a></li>
+      <li><a href="#contacto" class="nav-link hover:text-amarillo transition" data-section="contacto">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <!-- Botón de menú para pantallas pequeñas -->
+  <div class="md:hidden relative">
+    <button id="menu-btn" class="p-4 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 
+                   shadow-[inset_1px_1px_6px_rgba(255,255,255,0.6),inset_-2px_-2px_8px_rgba(0,0,0,0.5),0_10px_25px_rgba(0,0,0,0.3)]">
+      <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-align-justify font-black text-white transition-colors duration-300">
+        <path d="M3 12h18"/><path d="M3 18h18"/><path d="M3 6h18"/>
+      </svg>
+    </button>
+
+    <!-- Menú desplegable oculto inicialmente -->
+    <div id="menu-dropdown" class="hidden absolute right-0 mt-4 w-48 px-6 py-4 rounded-2xl
+                   bg-white/10 backdrop-blur-2xl
+                   shadow-[inset_1px_1px_6px_rgba(255,255,255,0.6),inset_-2px_-2px_8px_rgba(0,0,0,0.5),0_10px_25px_rgba(0,0,0,0.3)] 
+                   border border-white/20 gap-4 font-medium text-xl flex-col">
+      <a href="#sobremi" class="mobile-nav-link hover:text-amarillo transition" data-section="sobremi">Sobre mí</a>
+      <a href="#habilidades" class="mobile-nav-link hover:text-amarillo transition" data-section="habilidades">Habilidades</a>
+      <a href="#portafolio" class="mobile-nav-link hover:text-amarillo transition" data-section="portafolio">Proyectos</a>
+      <a href="#contacto" class="mobile-nav-link hover:text-amarillo transition" data-section="contacto">Contacto</a>
+    </div>
+  </div>
+</header>
+
+<script>
+  if (typeof window !== 'undefined') {
+    document.addEventListener('DOMContentLoaded', () => {
+      const btn = document.getElementById('menu-btn');
+      const menu = document.getElementById('menu-dropdown');
+      const navLinks = document.querySelectorAll('.nav-link');
+      const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+      const desktopNav = document.getElementById('desktop-nav');
+      const headerLogo = document.getElementById('header-logo');
+      const menuIcon = document.getElementById('menu-icon'); // Icono del menú móvil
+      const sections = ['sobremi', 'contacto'];
+      
+      const logoBlancoUrl = `${new URL(import.meta.url).origin}/src/assets/logoBlanco.png`;
+      const logoAzulUrl = `${new URL(import.meta.url).origin}/src/assets/logoAzul.png`;
+      
+      const preloadLogoAzul = new Image();
+      preloadLogoAzul.src = logoAzulUrl;
+      
+      function updateNavColors() {
+        const scrollPosition = window.scrollY + 100;
+        
+        let inLightSection = false;
+        
+        sections.forEach(section => {
+          const element = document.getElementById(section);
+          if (element) {
+            const sectionTop = element.offsetTop;
+            const sectionHeight = element.offsetHeight;
+            
+            if (scrollPosition >= sectionTop && scrollPosition <= sectionTop + sectionHeight) {
+              inLightSection = true;
+            }
+          }
+        });
+        
+        if (inLightSection) {
+          // Apply blue text to all navigation elements
+          navLinks.forEach(link => {
+            link.classList.remove('text-white');
+            link.classList.add('text-azul');
+          });
+          mobileNavLinks.forEach(link => {
+            link.classList.remove('text-white');
+            link.classList.add('text-azul');
+          });
+          desktopNav?.classList.add('text-azul');
+          // Cambiar el logo
+          headerLogo.src = logoAzulUrl;
+          // Cambiar el color del icono del menú
+          menuIcon.classList.remove('text-white');
+          menuIcon.classList.add('text-azul');
+        } else {
+          // Revert to white text
+          navLinks.forEach(link => {
+            link.classList.remove('text-azul');
+            link.classList.add('text-white');
+          });
+          mobileNavLinks.forEach(link => {
+            link.classList.remove('text-azul');
+            link.classList.add('text-white');
+          });
+          desktopNav?.classList.remove('text-azul');
+          // Cambiar el logo de vuelta
+          headerLogo.src = logoBlancoUrl;
+          // Cambiar el color del icono del menú
+          menuIcon.classList.remove('text-azul');
+          menuIcon.classList.add('text-white');
+        }
+      }
+      
+      window.addEventListener('scroll', updateNavColors);
+      // Update on load in case we start in the middle of a section
+      window.addEventListener('load', updateNavColors);
+      // Update on hash change (when clicking nav links)
+      window.addEventListener('hashchange', updateNavColors);
+      
+      btn.addEventListener('click', () => {
+        menu.classList.toggle('hidden');
+        menu.classList.toggle('flex');
+      });
+      
+      mobileNavLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          menu.classList.add('hidden');
+          menu.classList.remove('flex');
+        });
+      });
+    });
+  }
+</script>
+
+<style>
+  .text-azul {
+    color: #0000ff; 
+  }
+  
+  .text-white {
+    color: #ffffff;
+  }
+  
+  .text-amarillo {
+    color: #F8E71C; 
+  }
+  
+  .transition {
+    transition-property: color, background-color, border-color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+  }
+</style>
