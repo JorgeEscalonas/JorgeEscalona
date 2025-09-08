@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@astrojs/preact": "^4.1.0",
+    "@astrojs/vercel": "^8.2.7",
     "@types/nodemailer": "^7.0.1",
     "@types/react": "^19.1.12",
     "astro": "^5.13.3",
