@@ -7,8 +7,8 @@ import Portafolio from '../components/Portafolio.astro';
 import Habilidades from '../components/Habilidades.astro';
 import Contacto from '../components/Contacto.astro';
 import Footer from '../components/Footer.astro';
-import logoBlanco from '../assets/My-logo.ico';
-import logoAzul from "../assets/logoAzul.ico";
+import logoBlanco from '/public/My-logo.ico';
+import logoAzul from "/public//logoAzul.ico";
 ---
 
 <html lang="es">
@@ -31,8 +31,8 @@ import logoAzul from "../assets/logoAzul.ico";
         
         // Actualizar el favicon basado en el tema
         favicon.href = isDark ? 
-          '/src/assets/My-logo.ico' : 
-          '/src/assets/logoAzul.ico';
+          '/public/My-logo.ico' : 
+          '/public/logoAzul.ico';
       }
 
       // Configurar el favicon inicial

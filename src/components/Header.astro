@@ -1,6 +1,7 @@
 ---
-import logoBlanco from './logoblanco.png';
-import logoAzul from './logoazul.png';
+import logoBlanco from '/public/logoblanco.png';
+import logoAzul from '/public/logoazul.png';
+
 
 // Verificar si estamos en el cliente para evitar errores de SSR
 const isBrowser = typeof window !== 'undefined';
@@ -68,8 +69,8 @@ const isBrowser = typeof window !== 'undefined';
       const menuIcon = document.getElementById('menu-icon'); // Icono del menú móvil
       const sections = ['sobremi', 'contacto'];
       
-      const logoBlancoUrl = `${new URL(import.meta.url).origin}/src/assets/logoBlanco.png`;
-      const logoAzulUrl = `${new URL(import.meta.url).origin}/src/assets/logoAzul.png`;
+      const logoBlancoUrl = `${new URL(import.meta.url).origin}/public/logoblanco.png`;
+      const logoAzulUrl = `${new URL(import.meta.url).origin}/public/logoazul.png`;
       
       const preloadLogoAzul = new Image();
       preloadLogoAzul.src = logoAzulUrl;
