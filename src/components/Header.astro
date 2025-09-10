@@ -1,21 +1,25 @@
 ---
-import logoBlanco from '/public/logoblanco.png';
-import logoAzul from '/public/logoazul.png';
+import logoBlanco from '@/assets/svg/logoblanco.png';
+import logoAzul from '@/assets/svg/logoazul.png';
 
+// Pasar las URLs como variables al cliente
+const logoBlancoUrl = logoBlanco.src;
+const logoAzulUrl = logoAzul.src;
 
 // Verificar si estamos en el cliente para evitar errores de SSR
 const isBrowser = typeof window !== 'undefined';
 ---
-
 <header class="fixed top-0 w-full flex items-center justify-between px-3 z-50">
   <!-- Logo -->
   <div class="text-2xl font-bold">
     <a href="#hero" aria-label="Ir al inicio">
       <img 
-        src={logoBlanco.src} 
+        src={logoBlancoUrl} 
         alt="JE" 
         class="h-[70px] sm:h-[90px] md:h-[120px] w-auto transition-all duration-300" 
         id="header-logo"
+        data-logo-blanco={logoBlancoUrl}
+        data-logo-azul={logoAzulUrl}
       />
     </a>
   </div>
@@ -56,96 +60,88 @@ const isBrowser = typeof window !== 'undefined';
     </div>
   </div>
 </header>
-
 <script>
-  if (typeof window !== 'undefined') {
-    document.addEventListener('DOMContentLoaded', () => {
-      const btn = document.getElementById('menu-btn');
-      const menu = document.getElementById('menu-dropdown');
-      const navLinks = document.querySelectorAll('.nav-link');
-      const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
-      const desktopNav = document.getElementById('desktop-nav');
-      const headerLogo = document.getElementById('header-logo');
-      const menuIcon = document.getElementById('menu-icon'); // Icono del menú móvil
-      const sections = ['sobremi', 'contacto'];
+  document.addEventListener('DOMContentLoaded', () => {
+    const btn = document.getElementById('menu-btn');
+    const menu = document.getElementById('menu-dropdown');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+    const desktopNav = document.getElementById('desktop-nav');
+    const headerLogo = document.getElementById('header-logo');
+    const menuIcon = document.getElementById('menu-icon');
+    const sections = ['sobremi', 'contacto'];
+    
+    // Obtener las URLs de los logos desde los data attributes
+    const logoBlancoUrl = headerLogo.dataset.logoBlanco;
+    const logoAzulUrl = headerLogo.dataset.logoAzul;
+    
+    // Precargar el logo azul
+    const preloadLogoAzul = new Image();
+    preloadLogoAzul.src = logoAzulUrl;
+    
+    function updateNavColors() {
+      const scrollPosition = window.scrollY + 100;
+      let inLightSection = false;
       
-      const logoBlancoUrl = `${new URL(import.meta.url).origin}/public/logoblanco.png`;
-      const logoAzulUrl = `${new URL(import.meta.url).origin}/public/logoazul.png`;
-      
-      const preloadLogoAzul = new Image();
-      preloadLogoAzul.src = logoAzulUrl;
-      
-      function updateNavColors() {
-        const scrollPosition = window.scrollY + 100;
-        
-        let inLightSection = false;
-        
-        sections.forEach(section => {
-          const element = document.getElementById(section);
-          if (element) {
-            const sectionTop = element.offsetTop;
-            const sectionHeight = element.offsetHeight;
-            
-            if (scrollPosition >= sectionTop && scrollPosition <= sectionTop + sectionHeight) {
-              inLightSection = true;
-            }
+      sections.forEach(section => {
+        const element = document.getElementById(section);
+        if (element) {
+          const sectionTop = element.offsetTop;
+          const sectionHeight = element.offsetHeight;
+          
+          if (scrollPosition >= sectionTop && scrollPosition <= sectionTop + sectionHeight) {
+            inLightSection = true;
           }
-        });
-        
-        if (inLightSection) {
-          // Apply blue text to all navigation elements
-          navLinks.forEach(link => {
-            link.classList.remove('text-white');
-            link.classList.add('text-azul');
-          });
-          mobileNavLinks.forEach(link => {
-            link.classList.remove('text-white');
-            link.classList.add('text-azul');
-          });
-          desktopNav?.classList.add('text-azul');
-          // Cambiar el logo
-          headerLogo.src = logoAzulUrl;
-          // Cambiar el color del icono del menú
-          menuIcon.classList.remove('text-white');
-          menuIcon.classList.add('text-azul');
-        } else {
-          // Revert to white text
-          navLinks.forEach(link => {
-            link.classList.remove('text-azul');
-            link.classList.add('text-white');
-          });
-          mobileNavLinks.forEach(link => {
-            link.classList.remove('text-azul');
-            link.classList.add('text-white');
-          });
-          desktopNav?.classList.remove('text-azul');
-          // Cambiar el logo de vuelta
-          headerLogo.src = logoBlancoUrl;
-          // Cambiar el color del icono del menú
-          menuIcon.classList.remove('text-azul');
-          menuIcon.classList.add('text-white');
         }
-      }
-      
-      window.addEventListener('scroll', updateNavColors);
-      // Update on load in case we start in the middle of a section
-      window.addEventListener('load', updateNavColors);
-      // Update on hash change (when clicking nav links)
-      window.addEventListener('hashchange', updateNavColors);
-      
-      btn.addEventListener('click', () => {
-        menu.classList.toggle('hidden');
-        menu.classList.toggle('flex');
       });
       
-      mobileNavLinks.forEach(link => {
-        link.addEventListener('click', () => {
-          menu.classList.add('hidden');
-          menu.classList.remove('flex');
+      if (inLightSection) {
+        // Aplicar estilos para secciones claras
+        navLinks.forEach(link => {
+          link.classList.remove('text-white');
+          link.classList.add('text-azul');
         });
+        mobileNavLinks.forEach(link => {
+          link.classList.remove('text-white');
+          link.classList.add('text-azul');
+        });
+        if (desktopNav) desktopNav.classList.add('text-azul');
+        headerLogo.src = logoAzulUrl;
+        menuIcon.classList.remove('text-white');
+        menuIcon.classList.add('text-azul');
+      } else {
+        // Revertir a estilos normales
+        navLinks.forEach(link => {
+          link.classList.remove('text-azul');
+          link.classList.add('text-white');
+        });
+        mobileNavLinks.forEach(link => {
+          link.classList.remove('text-azul');
+          link.classList.add('text-white');
+        });
+        if (desktopNav) desktopNav.classList.remove('text-azul');
+        headerLogo.src = logoBlancoUrl;
+        menuIcon.classList.remove('text-azul');
+        menuIcon.classList.add('text-white');
+      }
+    }
+    
+    window.addEventListener('scroll', updateNavColors);
+    window.addEventListener('load', updateNavColors);
+    window.addEventListener('hashchange', updateNavColors);
+    
+    btn.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+      menu.classList.toggle('flex');
+    });
+    
+    mobileNavLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        menu.classList.add('hidden');
+        menu.classList.remove('flex');
       });
     });
-  }
+  });
 </script>
 
 <style>
