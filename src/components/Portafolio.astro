@@ -1,5 +1,6 @@
 ---
 import mp3 from '/public/mp3.jpg'
+import Calculadora from '/public/calculadora.png'
 import conversor from '/public/conversor.jpg'
 import servidor from '/public/servidor.jpg'
 import vetClinic from '/public/vetclinic.jpg'
@@ -10,7 +11,6 @@ import PhpIcon from '@/assets/svg/php_dark.svg';
 import CsharpIcon from '@/assets/svg/csharp.svg';
 import MySqlIcon from '@/assets/svg/mysql.svg';
 import UbuntuIcon from '@/assets/svg/ubuntu.svg';
-import Apache from '@/assets/svg/apache.svg';
 import HtmlIcon from '@/assets/svg/html5.svg';
 import CssIcon from '@/assets/svg/css_old.svg';
 import JsIcon from '@/assets/svg/javascript.svg';
@@ -88,7 +88,7 @@ import JsIcon from '@/assets/svg/javascript.svg';
             <p class="text-gray-300 mb-6 text-2xl font-bold">
               Aplicación web para la <span class="text-amarillo">conversión de precios</span> de productos de <span class="text-amarillo">dólares a bolívares.</span> 
               El sistema utiliza <span class="text-amarillo">PHP</span> para el backend, mientras que el frontend está construido con 
-              <span class="text-amarillo"> HTM, CSS y Javascipt</span>.
+              <span class="text-amarillo"> HTML, CSS y Javascipt</span>.
             </p>
               <div class="flex flex-wrap gap-2">
               <span class="font-semibold text-xl px-3 py-1 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 shadow-[inset_1px_1px_6px_rgba(255,255,255,0.6),inset_-2px_-2px_8px_rgba(0,0,0,0.5),0_10px_25px_rgba(0,0,0,0.3)] hover:scale-105 transition">
@@ -125,16 +125,16 @@ import JsIcon from '@/assets/svg/javascript.svg';
       </div>
 
       <!-- Proyecto 3 -->
-        <div class="flex flex-col md:flex-row items-center justify-center gap-20  ">
+      <div class="flex flex-col md:flex-row items-center gap-8">
         <!-- Imagen -->
-        <div class=" md:w-2/5 max-w-md flex items-center gap-2 px-6 py-3 text-sm ml-14 font-semibold text-white rounded-[50px]
+        <div class=" md:w-1/2 flex items-center gap-2 px-6 py-3 text-sm font-semibold text-white rounded-[50px]
             bg-white backdrop-blur-xl border border-white/20 
             shadow-[inset_1px_1px_6px_rgba(255,255,255,0.6),inset_-2px_-2px_8px_rgba(0,0,0,0.5),0_10px_25px_rgba(0,0,0,0.4)]">
           <div class="relative overflow-hidden rounded-lg shadow-2xl">
             <img 
-              src={servidor.src} 
-              alt="Servidor Web"
-              class=" h-64 md:h-80 object-cover transform transition-transform duration-500 hover:scale-105 rounded-[40px]"
+              src={Calculadora.src} 
+              alt="Calculadora de divisas"
+              class="w-full h-64 md:h-80 object-cover transform transition-transform duration-500 hover:scale-105 rounded-[40px]"
             />
           </div>
         </div>
@@ -142,19 +142,14 @@ import JsIcon from '@/assets/svg/javascript.svg';
         <!-- Contenido -->
         <div class="w-full md:w-1/2">
           <div class="p-6 rounded-lg h-full">
-            <h3 class="text-4xl font-extrabold text-amarillo mb-4">Servidor Web</h3>
+            <h3 class="text-4xl font-extrabold text-amarillo mb-4">Calculadora de divisas</h3>
             <p class="text-gray-300 mb-6 text-2xl font-bold">
-              Servidor web <span class="text-amarillo">configurado</span> en <span class="text-amarillo">Ubuntu con Apache</span> para solicitudes <span class="text-amarillo">HTTP y MySQL</span> para <span class="text-amarillo"> bases de datos</span>, ideal para alojar <span class="text-amarillo">aplicaciones y sitios web</span>.</p>
-            
+              Aplicación desarrollada con <span class="text-amarillo">Vue</span> que utiliza la <span class="text-amarillo">API oficial de tasas de cambio</span> para convertir Bolívares a <span class="text-amarillo">Dólares</span> o <span class="text-amarillo">Euros</span>. Proporciona datos actualizados y una conversión <span class="text-amarillo">rápida, precisa</span> y <span class="text-amarillo">fácil de usar.</span></p>
             <div class="flex flex-wrap gap-2">
               <span class="font-semibold text-xl px-3 py-1 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 shadow-[inset_1px_1px_6px_rgba(255,255,255,0.6),inset_-2px_-2px_8px_rgba(0,0,0,0.5),0_10px_25px_rgba(0,0,0,0.3)] hover:scale-105 transition">
                 <span>
-                  <img src={Apache.src} alt="Apache" class="w-5 h-5 inline-block mr-1" />
-                </span>Apache</span>
-              <span class="font-semibold text-xl px-3 py-1 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 shadow-[inset_1px_1px_6px_rgba(255,255,255,0.6),inset_-2px_-2px_8px_rgba(0,0,0,0.5),0_10px_25px_rgba(0,0,0,0.3)] hover:scale-105 transition">
-                <span>
-                  <img src={UbuntuIcon.src} alt="Ubuntu" class="w-5 h-5 inline-block mr-1" />
-                </span>Ubuntu</span>
+                  <img src={VueIcon.src} alt="Vue" class="w-5 h-5 inline-block mr-1" />
+                </span>Vue</span>
             </div>  
           </div>
         </div>
