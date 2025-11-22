@@ -1,64 +1,112 @@
 ---
-import mp3 from '/public/mp3.jpg'
-import Calculadora from '/public/calculadora.png'
-import conversor from '/public/conversor.jpg'
-import servidor from '/public/servidor.jpg'
-import vetClinic from '/public/vetclinic.jpg'
+import mp3 from "/public/mp3.jpg";
+import Calculadora from "/public/calculadora.png";
+import conversor from "/public/conversor.jpg";
+import servidor from "/public/servidor.jpg";
+import vetClinic from "/public/vetclinic.jpg";
 
-import VueIcon from '@/assets/svg/vue.svg';
-import NodeIcon from '@/assets/svg/nodejs.svg';
-import PhpIcon from '@/assets/svg/php_dark.svg';
-import CsharpIcon from '@/assets/svg/csharp.svg';
-import MySqlIcon from '@/assets/svg/mysql.svg';
-import UbuntuIcon from '@/assets/svg/ubuntu.svg';
-import HtmlIcon from '@/assets/svg/html5.svg';
-import CssIcon from '@/assets/svg/css_old.svg';
-import JsIcon from '@/assets/svg/javascript.svg';
-
+import VueIcon from "@/assets/svg/vue.svg";
+import NodeIcon from "@/assets/svg/nodejs.svg";
+import PhpIcon from "@/assets/svg/php_dark.svg";
+import CsharpIcon from "@/assets/svg/csharp.svg";
+import MySqlIcon from "@/assets/svg/mysql.svg";
+import UbuntuIcon from "@/assets/svg/ubuntu.svg";
+import HtmlIcon from "@/assets/svg/html5.svg";
+import CssIcon from "@/assets/svg/css_old.svg";
+import JsIcon from "@/assets/svg/javascript.svg";
 ---
+
 <section id="portafolio" class="py-24 min-h-screen max-w-8xl mx-auto">
   <div class="container mx-auto px-4">
-    <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-amarillo text-center mb-6">Portafolio</h2>
-    <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white text-center mb-8">Proyectos Destacados</h2>
-    
-     <div class="space-y-16 md:space-y-20 lg:space-y-24 max-w-6xl mx-auto">
+    <h2
+      class="text-4xl sm:text-5xl md:text-6xl font-black text-amarillo text-center mb-6"
+    >
+      Portafolio
+    </h2>
+    <h2
+      class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white text-center mb-8"
+    >
+      Proyectos Destacados
+    </h2>
+
+    <div class="space-y-16 md:space-y-20 lg:space-y-24 max-w-6xl mx-auto">
       <!-- Proyecto 1 -->
       <div class="flex flex-col md:flex-row items-center gap-8">
         <!-- Imagen -->
-        <div class=" md:w-1/2 flex items-center gap-2 px-6 py-3 text-sm font-semibold text-white rounded-[50px]
-                    bg-white backdrop-blur-xl border border-white/20 
-                    shadow-[inset_1px_1px_6px_rgba(255,255,255,0.6),inset_-2px_-2px_8px_rgba(0,0,0,0.5),0_10px_25px_rgba(0,0,0,0.4)]">
-          <div class="relative overflow-hidden rounded-lg shadow-2xl">
-            <img 
-              src={mp3.src} 
+        <div
+          class="project-card md:w-1/2 flex items-center gap-2 px-6 py-3 text-sm font-semibold text-white rounded-[50px]
+                    bg-white backdrop-blur-xl border border-white/20
+                    shadow-[inset_1px_1px_6px_rgba(255,255,255,0.6),inset_-2px_-2px_8px_rgba(0,0,0,0.5),0_10px_25px_rgba(0,0,0,0.4)]
+                    transition-all duration-300 ease-out"
+        >
+          <div class="relative overflow-hidden rounded-lg shadow-2xl w-full">
+            <div
+              class="glow absolute inset-0 w-full h-full pointer-events-none z-10 opacity-0 transition-opacity duration-300 mix-blend-overlay bg-gradient-to-br from-white/40 to-transparent"
+            >
+            </div>
+            <img
+              src={mp3.src}
               alt="Reproductor MP3"
-              class="w-full h-64 md:h-80 object-cover transform transition-transform duration-500 hover:scale-105 rounded-[40px]"
+              class="w-full h-64 md:h-80 object-cover rounded-[40px]"
             />
           </div>
         </div>
-        
+
         <!-- Contenido -->
         <div class="w-full md:w-1/2">
           <div class="p-6 rounded-lg h-full">
-            <h3 class="text-4xl font-extrabold text-amarillo mb-4">Reproductor MP3</h3>
+            <h3 class="text-4xl font-extrabold text-amarillo mb-4">
+              Reproductor MP3
+            </h3>
             <p class="text-gray-300 mb-6 text-2xl font-bold">
-              Aplicación en <span class="text-yellow-400">C#</span> con 
-              <span class="text-yellow-400"> WinForms</span> que permite reproducir archivos de audio con una <span class="text-amarillo"> interfaz intuitiva</span> y funciones avanzadas de <span class="text-amarillo"> reproducción de música</span> con gestión de <span class="text-amarillo"> usuarios</span> y <span class="text-amarillo"> biblioteca</span>.
+              Aplicación en <span class="text-yellow-400">C#</span> con
+              <span class="text-yellow-400"> WinForms</span> que permite reproducir
+              archivos de audio con una <span class="text-amarillo">
+                interfaz intuitiva</span
+              > y funciones avanzadas de <span class="text-amarillo">
+                reproducción de música</span
+              > con gestión de <span class="text-amarillo"> usuarios</span> y <span
+                class="text-amarillo"
+              >
+                biblioteca</span
+              >.
             </p>
-            
+
             <div class="flex flex-wrap gap-2">
-              <span class="text-xl font-semibold px-3 py-1 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 shadow-[inset_1px_1px_6px_rgba(255,255,255,0.6),inset_-2px_-2px_8px_rgba(0,0,0,0.5),0_10px_25px_rgba(0,0,0,0.3)] hover:scale-105 transition">
+              <span
+                class="text-xl font-semibold text-white px-3 py-1 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 shadow-[inset_1px_1px_6px_rgba(255,255,255,0.6),inset_-2px_-2px_8px_rgba(0,0,0,0.5),0_10px_25px_rgba(0,0,0,0.3)] hover:scale-105 transition"
+              >
                 <span>
-                  <img src={CsharpIcon.src} alt="Csharp" class="w-5 h-5 inline-block mr-1" />
-                </span>Csharp</span>
-              <span class="text-xl font-semibold px-3 py-1 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 shadow-[inset_1px_1px_6px_rgba(255,255,255,0.6),inset_-2px_-2px_8px_rgba(0,0,0,0.5),0_10px_25px_rgba(0,0,0,0.3)] hover:scale-105 transition">WinForms</span>
+                  <img
+                    src={CsharpIcon.src}
+                    alt="Csharp"
+                    class="w-5 h-5 inline-block mr-1"
+                  />
+                </span>Csharp</span
+              >
+              <span
+                class="text-xl font-semibold text-white px-3 py-1 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 shadow-[inset_1px_1px_6px_rgba(255,255,255,0.6),inset_-2px_-2px_8px_rgba(0,0,0,0.5),0_10px_25px_rgba(0,0,0,0.3)] hover:scale-105 transition"
+                >WinForms</span
+              >
             </div>
 
             <div class="mt-6">
-              <a href="https://github.com/JorgeEscalonas/ReproductorMp3" class="inline-flex items-center text-amarillo hover:scale-105 transition font-medium">
+              <a
+                href="https://github.com/JorgeEscalonas/ReproductorMp3"
+                class="inline-flex items-center text-amarillo hover:scale-105 transition font-medium"
+              >
                 Ver proyecto
-                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                <svg
+                  class="w-5 h-5 ml-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                 </svg>
               </a>
             </div>
@@ -69,88 +117,163 @@ import JsIcon from '@/assets/svg/javascript.svg';
       <!-- Proyecto 2 -->
       <div class="flex flex-col md:flex-row-reverse items-center gap-8">
         <!-- Imagen -->
-        <div class=" md:w-1/2 flex items-center gap-2 px-6 py-3 text-sm font-semibold text-white rounded-[50px]
-                    bg-white backdrop-blur-xl border border-white/20 
-                    shadow-[inset_1px_1px_6px_rgba(255,255,255,0.6),inset_-2px_-2px_8px_rgba(0,0,0,0.5),0_10px_25px_rgba(0,0,0,0.4)]">
-          <div class="relative overflow-hidden rounded-lg shadow-2xl">
-            <img 
-              src={conversor.src} 
+        <div
+          class="project-card md:w-1/2 flex items-center gap-2 px-6 py-3 text-sm font-semibold text-white rounded-[50px]
+                    bg-white backdrop-blur-xl border border-white/20
+                    shadow-[inset_1px_1px_6px_rgba(255,255,255,0.6),inset_-2px_-2px_8px_rgba(0,0,0,0.5),0_10px_25px_rgba(0,0,0,0.4)]
+                    transition-all duration-300 ease-out"
+        >
+          <div class="relative overflow-hidden rounded-lg shadow-2xl w-full">
+            <div
+              class="glow absolute inset-0 w-full h-full pointer-events-none z-10 opacity-0 transition-opacity duration-300 mix-blend-overlay bg-gradient-to-br from-white/40 to-transparent"
+            >
+            </div>
+            <img
+              src={conversor.src}
               alt="Conversor de Precios"
-              class="w-full h-64 md:h-80 object-cover transform transition-transform duration-500 hover:scale-105 rounded-[40px]"
+              class="w-full h-64 md:h-80 object-cover rounded-[40px]"
             />
           </div>
         </div>
-        
+
         <!-- Contenido -->
         <div class="w-full md:w-1/2">
           <div class="p-6 rounded-lg h-full">
-            <h3 class="text-4xl font-extrabold text-amarillo mb-4">Conversor de Precios</h3>
+            <h3 class="text-4xl font-extrabold text-amarillo mb-4">
+              Conversor de Precios
+            </h3>
             <p class="text-gray-300 mb-6 text-2xl font-bold">
-              Aplicación web para la <span class="text-amarillo">conversión de precios</span> de productos de <span class="text-amarillo">dólares a bolívares.</span> 
-              El sistema utiliza <span class="text-amarillo">PHP</span> para el backend, mientras que el frontend está construido con 
+              Aplicación web para la <span class="text-amarillo"
+                >conversión de precios</span
+              > de productos de <span class="text-amarillo"
+                >dólares a bolívares.</span
+              >
+              El sistema utiliza <span class="text-amarillo">PHP</span> para el backend,
+              mientras que el frontend está construido con
               <span class="text-amarillo"> HTML, CSS y Javascipt</span>.
             </p>
-              <div class="flex flex-wrap gap-2">
-              <span class="font-semibold text-xl px-3 py-1 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 shadow-[inset_1px_1px_6px_rgba(255,255,255,0.6),inset_-2px_-2px_8px_rgba(0,0,0,0.5),0_10px_25px_rgba(0,0,0,0.3)] hover:scale-105 transition">
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="font-semibold text-xl text-white px-3 py-1 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 shadow-[inset_1px_1px_6px_rgba(255,255,255,0.6),inset_-2px_-2px_8px_rgba(0,0,0,0.5),0_10px_25px_rgba(0,0,0,0.3)] hover:scale-105 transition"
+              >
                 <span>
-                  <img src={HtmlIcon.src} alt="PHP" class="w-5 h-5 inline-block mr-1" />
-                </span>Html</span>
-              <span class="font-semibold text-xl px-3 py-1 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 shadow-[inset_1px_1px_6px_rgba(255,255,255,0.6),inset_-2px_-2px_8px_rgba(0,0,0,0.5),0_10px_25px_rgba(0,0,0,0.3)] hover:scale-105 transition">
+                  <img
+                    src={HtmlIcon.src}
+                    alt="Html"
+                    class="w-5 h-5 inline-block mr-1"
+                  />
+                </span>Html</span
+              >
+              <span
+                class="font-semibold text-xl text-white px-3 py-1 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 shadow-[inset_1px_1px_6px_rgba(255,255,255,0.6),inset_-2px_-2px_8px_rgba(0,0,0,0.5),0_10px_25px_rgba(0,0,0,0.3)] hover:scale-105 transition"
+              >
                 <span>
-                  <img src={CssIcon.src} alt="Css" class="w-5 h-5 inline-block mr-1" />
-                  </span>Css</span>
-                </span>
-              <span class="font-semibold text-xl px-3 py-1 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 shadow-[inset_1px_1px_6px_rgba(255,255,255,0.6),inset_-2px_-2px_8px_rgba(0,0,0,0.5),0_10px_25px_rgba(0,0,0,0.3)] hover:scale-105 transition">
+                  <img
+                    src={CssIcon.src}
+                    alt="Css"
+                    class="w-5 h-5 inline-block mr-1"
+                  />
+                </span>Css</span
+              >
+              <span
+                class="font-semibold text-xl text-white px-3 py-1 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 shadow-[inset_1px_1px_6px_rgba(255,255,255,0.6),inset_-2px_-2px_8px_rgba(0,0,0,0.5),0_10px_25px_rgba(0,0,0,0.3)] hover:scale-105 transition"
+              >
                 <span>
-                  <img src={PhpIcon.src} alt="PHP" class="w-7 h-7 inline-block mr-1" />
-                  </span>Php</span>
-                </span>
-              <span class="font-semibold text-xl px-3 py-1 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 shadow-[inset_1px_1px_6px_rgba(255,255,255,0.6),inset_-2px_-2px_8px_rgba(0,0,0,0.5),0_10px_25px_rgba(0,0,0,0.3)] hover:scale-105 transition">
-                  <span>
-                    <img src={JsIcon.src} alt="]avaScript" class="w-5 h-5 inline-block mr-1" />
-                  </span>Javascipt</span>
-                </span>
+                  <img
+                    src={PhpIcon.src}
+                    alt="PHP"
+                    class="w-7 h-7 inline-block mr-1"
+                  />
+                </span>Php</span
+              >
+              <span
+                class="font-semibold text-xl text-white px-3 py-1 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 shadow-[inset_1px_1px_6px_rgba(255,255,255,0.6),inset_-2px_-2px_8px_rgba(0,0,0,0.5),0_10px_25px_rgba(0,0,0,0.3)] hover:scale-105 transition"
+              >
+                <span>
+                  <img
+                    src={JsIcon.src}
+                    alt="JavaScript"
+                    class="w-5 h-5 inline-block mr-1"
+                  />
+                </span>JavaScript</span
+              >
             </div>
-            <div class="mt-6">
-              <a href="https://github.com/JorgeEscalonas/CDG" class="inline-flex items-center text-amarillo hover:scale-105 transition font-medium">
-                Ver proyecto
-                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                </svg>
-              </a>
-            </div>
-          </div>      
-
+          </div>
+          <div class="mt-6">
+            <a
+              href="https://github.com/JorgeEscalonas/CDG"
+              class="inline-flex items-center text-amarillo hover:scale-105 transition font-medium"
+            >
+              Ver proyecto
+              <svg
+                class="w-5 h-5 ml-2"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+              </svg>
+            </a>
+          </div>
         </div>
       </div>
 
       <!-- Proyecto 3 -->
       <div class="flex flex-col md:flex-row items-center gap-8">
         <!-- Imagen -->
-        <div class=" md:w-1/2 flex items-center gap-2 px-6 py-3 text-sm font-semibold text-white rounded-[50px]
-            bg-white backdrop-blur-xl border border-white/20 
-            shadow-[inset_1px_1px_6px_rgba(255,255,255,0.6),inset_-2px_-2px_8px_rgba(0,0,0,0.5),0_10px_25px_rgba(0,0,0,0.4)]">
-          <div class="relative overflow-hidden rounded-lg shadow-2xl">
-            <img 
-              src={Calculadora.src} 
+        <div
+          class="project-card md:w-1/2 flex items-center gap-2 px-6 py-3 text-sm font-semibold text-white rounded-[50px]
+            bg-white backdrop-blur-xl border border-white/20
+            shadow-[inset_1px_1px_6px_rgba(255,255,255,0.6),inset_-2px_-2px_8px_rgba(0,0,0,0.5),0_10px_25px_rgba(0,0,0,0.4)]
+            transition-all duration-300 ease-out"
+        >
+          <div class="relative overflow-hidden rounded-lg shadow-2xl w-full">
+            <div
+              class="glow absolute inset-0 w-full h-full pointer-events-none z-10 opacity-0 transition-opacity duration-300 mix-blend-overlay bg-gradient-to-br from-white/40 to-transparent"
+            >
+            </div>
+            <img
+              src={Calculadora.src}
               alt="Calculadora de divisas"
-              class="w-full h-64 md:h-80 object-cover transform transition-transform duration-500 hover:scale-105 rounded-[40px]"
+              class="w-full h-64 md:h-80 object-cover rounded-[40px]"
             />
           </div>
         </div>
-        
+
         <!-- Contenido -->
         <div class="w-full md:w-1/2">
           <div class="p-6 rounded-lg h-full">
-            <h3 class="text-4xl font-extrabold text-amarillo mb-4">Calculadora de divisas</h3>
+            <h3 class="text-4xl font-extrabold text-amarillo mb-4">
+              Calculadora de divisas
+            </h3>
             <p class="text-gray-300 mb-6 text-2xl font-bold">
-              Aplicación desarrollada con <span class="text-amarillo">Vue</span> que utiliza la <span class="text-amarillo">API oficial de tasas de cambio</span> para convertir Bolívares a <span class="text-amarillo">Dólares</span> o <span class="text-amarillo">Euros</span>. Proporciona datos actualizados y una conversión <span class="text-amarillo">rápida, precisa</span> y <span class="text-amarillo">fácil de usar.</span></p>
+              Aplicación desarrollada con <span class="text-amarillo">Vue</span>
+              que utiliza la <span class="text-amarillo"
+                >API oficial de tasas de cambio</span
+              > para convertir Bolívares a <span class="text-amarillo"
+                >Dólares</span
+              > o <span class="text-amarillo">Euros</span>. Proporciona datos
+              actualizados y una conversión <span class="text-amarillo"
+                >rápida, precisa</span
+              > y <span class="text-amarillo">fácil de usar.</span>
+            </p>
             <div class="flex flex-wrap gap-2">
-              <span class="font-semibold text-xl px-3 py-1 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 shadow-[inset_1px_1px_6px_rgba(255,255,255,0.6),inset_-2px_-2px_8px_rgba(0,0,0,0.5),0_10px_25px_rgba(0,0,0,0.3)] hover:scale-105 transition">
+              <span
+                class="font-semibold text-xl text-white px-3 py-1 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 shadow-[inset_1px_1px_6px_rgba(255,255,255,0.6),inset_-2px_-2px_8px_rgba(0,0,0,0.5),0_10px_25px_rgba(0,0,0,0.3)] hover:scale-105 transition"
+              >
                 <span>
-                  <img src={VueIcon.src} alt="Vue" class="w-5 h-5 inline-block mr-1" />
-                </span>Vue</span>
-            </div>  
+                  <img
+                    src={VueIcon.src}
+                    alt="Vue"
+                    class="w-5 h-5 inline-block mr-1"
+                  />
+                </span>Vue</span
+              >
+            </div>
           </div>
         </div>
       </div>
@@ -158,46 +281,132 @@ import JsIcon from '@/assets/svg/javascript.svg';
       <!-- Proyecto 4 -->
       <div class="flex flex-col md:flex-row-reverse items-center gap-8">
         <!-- Imagen -->
-        <div class=" md:w-1/2 flex items-center gap-2 px-6 py-3 text-sm font-semibold text-white rounded-[50px]
-                    bg-white backdrop-blur-xl border border-white/20 
-                    shadow-[inset_1px_1px_6px_rgba(255,255,255,0.6),inset_-2px_-2px_8px_rgba(0,0,0,0.5),0_10px_25px_rgba(0,0,0,0.4)]">
-          <div class="relative overflow-hidden rounded-lg shadow-2xl">
-            <img 
+        <div
+          class="project-card md:w-1/2 flex items-center gap-2 px-6 py-3 text-sm font-semibold text-white rounded-[50px]
+                    bg-white backdrop-blur-xl border border-white/20
+                    shadow-[inset_1px_1px_6px_rgba(255,255,255,0.6),inset_-2px_-2px_8px_rgba(0,0,0,0.5),0_10px_25px_rgba(0,0,0,0.4)]
+                    transition-all duration-300 ease-out"
+        >
+          <div class="relative overflow-hidden rounded-lg shadow-2xl w-full">
+            <div
+              class="glow absolute inset-0 w-full h-full pointer-events-none z-10 opacity-0 transition-opacity duration-300 mix-blend-overlay bg-gradient-to-br from-white/40 to-transparent"
+            >
+            </div>
+            <img
               src={vetClinic.src}
               alt="Sistema Veterinario"
-              class="w-full h-64 md:h-80 object-cover transform transition-transform duration-500 hover:scale-105 rounded-[40px]"
+              class="w-full h-64 md:h-80 object-cover rounded-[40px]"
             />
           </div>
         </div>
-        
+
         <!-- Contenido -->
         <div class="w-full md:w-1/2">
           <div class="p-6 rounded-lg h-full">
-            <h3 class="text-4xl font-extrabold text-amarillo mb-4">Sistema Veterinario</h3>
+            <h3 class="text-4xl font-extrabold text-amarillo mb-4">
+              Sistema Veterinario
+            </h3>
             <p class="text-gray-300 mb-6 text-2xl font-bold">
-              Sistema de <span class="text-amarillo"> gestión</span> veterinaria desarrollado con <span class="text-amarillo">Vue</span> en el frontend y <span class="text-amarillo">Express</span> en el backend. Permite administrar clientes, mascotas, citas, veterinarios, servicios, facturas e historias clínicas mediante una <span class="text-amarillo"> interfaz intuitiva</span> y un backend <span class="text-amarillo">robusto conectado a MySQL.</span>
+              Sistema de <span class="text-amarillo"> gestión</span> veterinaria
+              desarrollado con <span class="text-amarillo">Vue</span> en el frontend
+              y <span class="text-amarillo">Express</span> en el backend. Permite
+              administrar clientes, mascotas, citas, veterinarios, servicios, facturas
+              e historias clínicas mediante una <span class="text-amarillo">
+                interfaz intuitiva</span
+              > y un backend <span class="text-amarillo"
+                >robusto conectado a MySQL.</span
+              >
             </p>
-            
-            <div class="flex flex-wrap gap-2">
-              <span class="font-semibold text-xl px-3 py-1 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 shadow-[inset_1px_1px_6px_rgba(255,255,255,0.6),inset_-2px_-2px_8px_rgba(0,0,0,0.5),0_10px_25px_rgba(0,0,0,0.3)] hover:scale-105 transition">
-                <span>
-                  <img src={VueIcon.src} alt="Vue.js" class="w-5 h-5 inline-block mr-1" />
-                Vue.js</span>
-                </span>
-              <span class="font-semibold text-xl px-3 py-1 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 shadow-[inset_1px_1px_6px_rgba(255,255,255,0.6),inset_-2px_-2px_8px_rgba(0,0,0,0.5),0_10px_25px_rgba(0,0,0,0.3)] hover:scale-105 transition">
-                <span>
-                  <img src={NodeIcon.src} alt="Node.js" class="w-5 h-5 inline-block mr-1" />
-                </span>Node.js</span>
-              <span class="font-semibold text-xl px-3 py-1 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 shadow-[inset_1px_1px_6px_rgba(255,255,255,0.6),inset_-2px_-2px_8px_rgba(0,0,0,0.5),0_10px_25px_rgba(0,0,0,0.3)] hover:scale-105 transition">
-                <span>
-                  <img src={MySqlIcon.src} alt="MySQL" class="w-5 h-5 inline-block mr-1" />
-                </span>MySQL</span>
-            </div>
 
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="font-semibold text-xl text-white px-3 py-1 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 shadow-[inset_1px_1px_6px_rgba(255,255,255,0.6),inset_-2px_-2px_8px_rgba(0,0,0,0.5),0_10px_25px_rgba(0,0,0,0.3)] hover:scale-105 transition"
+              >
+                <span>
+                  <img
+                    src={VueIcon.src}
+                    alt="Vue.js"
+                    class="w-5 h-5 inline-block mr-1"
+                  />
+                  Vue.js</span
+                >
+              </span>
+              <span
+                class="font-semibold text-xl text-white px-3 py-1 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 shadow-[inset_1px_1px_6px_rgba(255,255,255,0.6),inset_-2px_-2px_8px_rgba(0,0,0,0.5),0_10px_25px_rgba(0,0,0,0.3)] hover:scale-105 transition"
+              >
+                <span>
+                  <img
+                    src={NodeIcon.src}
+                    alt="Node.js"
+                    class="w-5 h-5 inline-block mr-1"
+                  />
+                </span>Node.js</span
+              >
+              <span
+                class="font-semibold text-xl text-white px-3 py-1 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 shadow-[inset_1px_1px_6px_rgba(255,255,255,0.6),inset_-2px_-2px_8px_rgba(0,0,0,0.5),0_10px_25px_rgba(0,0,0,0.3)] hover:scale-105 transition"
+              >
+                <span>
+                  <img
+                    src={MySqlIcon.src}
+                    alt="MySQL"
+                    class="w-5 h-5 inline-block mr-1"
+                  />
+                </span>MySQL</span
+              >
+            </div>
           </div>
         </div>
       </div>
-
     </div>
+
+    <style>
+      .project-card {
+        perspective: 1000px;
+        transform-style: preserve-3d;
+      }
+
+      .project-card img {
+        transform: translateZ(20px);
+      }
+    </style>
+
+    <script>
+      const cards = document.querySelectorAll(".project-card");
+
+      cards.forEach((card) => {
+        const glow = card.querySelector(".glow") as HTMLElement;
+
+        card.addEventListener("mousemove", (e) => {
+          const rect = card.getBoundingClientRect();
+          // @ts-ignore
+          const x = e.clientX - rect.left;
+          // @ts-ignore
+          const y = e.clientY - rect.top;
+
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+
+          const rotateX = ((y - centerY) / centerY) * -3; // Max rotation 3deg
+          const rotateY = ((x - centerX) / centerX) * 3;
+
+          // @ts-ignore
+          card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.01, 1.01, 1.01)`;
+
+          if (glow) {
+            glow.style.opacity = "1";
+            glow.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(255,255,255,0.3) 0%, transparent 70%)`;
+          }
+        });
+
+        card.addEventListener("mouseleave", () => {
+          // @ts-ignore
+          card.style.transform =
+            "perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)";
+          if (glow) {
+            glow.style.opacity = "0";
+          }
+        });
+      });
+    </script>
   </div>
 </section>
