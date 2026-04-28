@@ -46,10 +46,165 @@ const {
 	</head>
 	<body>
 		<div
-			class="fixed inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]"
+			class="fixed inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_35%,#0000FF_100%)]"
 		>
 		</div>
 
 		<slot />
+
+		<script>
+			import Lenis from 'lenis';
+
+			// Initialize Lenis for smooth scrolling
+			const lenis = new Lenis({
+				duration: 1.2,
+				easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+				touchMultiplier: 2,
+				infinite: false,
+			});
+
+			function raf(time: number) {
+				lenis.raf(time);
+				requestAnimationFrame(raf);
+			}
+
+			requestAnimationFrame(raf);
+
+			// Parallax Effect
+			const parallaxElements = document.querySelectorAll('.parallax');
+			const elementStates = new Map();
+
+			parallaxElements.forEach((el, i) => {
+				elementStates.set(el, {
+					currentY: 0, targetY: 0,
+					currentX: 0, targetX: 0,
+					currentR: 0, targetR: 0,
+					currentS: 0, targetS: 0
+				});
+			});
+
+			lenis.on('scroll', ({ scroll }) => {
+				parallaxElements.forEach((el) => {
+					const elHtml = el as HTMLElement;
+					const state = elementStates.get(el);
+					const speed = parseFloat(elHtml.dataset.speed || '0.5');
+					const direction = elHtml.dataset.direction === 'up' ? -1 : 1;
+					
+					state.targetY = scroll * speed * direction;
+					state.targetX = scroll * parseFloat(elHtml.dataset.x || '0');
+					state.targetR = scroll * parseFloat(elHtml.dataset.rotate || '0');
+					state.targetS = scroll * parseFloat(elHtml.dataset.skew || '0');
+				});
+			});
+
+			// Animation loop for fluid independence
+			function updateParallax() {
+				parallaxElements.forEach((el) => {
+					const elHtml = el as HTMLElement;
+					const state = elementStates.get(el);
+					const lag = parseFloat(elHtml.dataset.lag || '1'); // 1 = no lag, lower = more lag
+
+					state.currentY += (state.targetY - state.currentY) * lag;
+					state.currentX += (state.targetX - state.currentX) * lag;
+					state.currentR += (state.targetR - state.currentR) * lag;
+					state.currentS += (state.targetS - state.currentS) * lag;
+
+					elHtml.style.transform = `translate3d(${state.currentX}px, ${state.currentY}px, 0) rotate(${state.currentR}deg) skewX(${state.currentS}deg)`;
+				});
+				requestAnimationFrame(updateParallax);
+			}
+			updateParallax();
+
+			// Reveal animations on scroll
+			const observerOptions = {
+				threshold: [0.05, 0.1, 0.2], // Multiple thresholds for smoother detection
+				rootMargin: '0px 0px -10% 0px' // Start animating slightly before they enter the main view
+			};
+
+			const observer = new IntersectionObserver((entries) => {
+				entries.forEach(entry => {
+					// Determinamos si el elemento está lo suficientemente visible para considerarse "activo"
+					if (entry.isIntersecting && entry.intersectionRatio > 0.05) {
+						entry.target.classList.add('reveal-visible');
+						entry.target.classList.add('active');
+					} else if (!entry.isIntersecting) {
+						// Solo quitamos la clase si realmente ha salido para evitar parpadeos bruscos
+						entry.target.classList.remove('reveal-visible');
+						entry.target.classList.remove('active');
+					}
+				});
+			}, observerOptions);
+
+			document.querySelectorAll('.reveal, .reveal-zoom, .reveal-left, .reveal-right').forEach(el => observer.observe(el));
+		</script>
+
+		<style is:global>
+			/* --- Animaciones de Revelado al Scroll --- */
+			.reveal {
+				opacity: 0;
+				transform: translateY(20px);
+				transition: opacity 1.8s cubic-bezier(0.16, 1, 0.3, 1), 
+							transform 1.8s cubic-bezier(0.16, 1, 0.3, 1);
+				will-change: opacity, transform;
+			}
+
+			.reveal-zoom {
+				opacity: 0;
+				transform: scale(0.96) translateY(20px);
+				transition: opacity 2s cubic-bezier(0.16, 1, 0.3, 1), 
+							transform 2s cubic-bezier(0.16, 1, 0.3, 1);
+				will-change: opacity, transform;
+			}
+
+			.reveal-left {
+				opacity: 0;
+				transform: translateX(-30px);
+				transition: opacity 1.8s cubic-bezier(0.16, 1, 0.3, 1), 
+							transform 1.8s cubic-bezier(0.16, 1, 0.3, 1);
+				will-change: opacity, transform;
+			}
+
+			.reveal-right {
+				opacity: 0;
+				transform: translateX(30px);
+				transition: opacity 1.8s cubic-bezier(0.16, 1, 0.3, 1), 
+							transform 1.8s cubic-bezier(0.16, 1, 0.3, 1);
+				will-change: opacity, transform;
+			}
+
+			.reveal.active,
+			.reveal-zoom.active,
+			.reveal-left.active,
+			.reveal-right.active,
+			.reveal-visible {
+				opacity: 1;
+				transform: translate(0) scale(1);
+			}
+
+			/* Efecto Stagger (escalonado) opcional para contenedores */
+			.stagger > *:nth-child(1) { transition-delay: 0.1s; }
+			.stagger > *:nth-child(2) { transition-delay: 0.2s; }
+			.stagger > *:nth-child(3) { transition-delay: 0.3s; }
+			.stagger > *:nth-child(4) { transition-delay: 0.4s; }
+			.stagger > *:nth-child(5) { transition-delay: 0.5s; }
+			.stagger > *:nth-child(6) { transition-delay: 0.6s; }
+
+			/* Lenis smooth scroll requirements */
+			html.lenis, html.lenis body {
+				height: auto;
+			}
+			.lenis.lenis-smooth {
+				scroll-behavior: auto !important;
+			}
+			.lenis.lenis-smooth [data-lenis-prevent] {
+				overscroll-behavior: contain;
+			}
+			.lenis.lenis-stopped {
+				overflow: hidden;
+			}
+			.lenis.lenis-scrolling iframe {
+				pointer-events: none;
+			}
+		</style>
 	</body>
 </html>
